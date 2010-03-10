@@ -3,8 +3,8 @@
     // $([1,2,3]).collect(function() { return this * this }) // => [1, 4, 9]
     collect: function(enumerable, callback) {
       var result = [];
-      $.each(enumerable, function(index) {
-        result.push(callback.call(this, index));
+      $.each(enumerable, function(index, value) {
+        result.push(callback.call(value, index));
       });
       return result;
     },
@@ -13,8 +13,8 @@
     inject: function(enumerable, initialValue, callback) {
       var accumulator = initialValue;
 
-      $.each(enumerable, function (index) {
-        accumulator = callback.call(this, accumulator, index);
+      $.each(enumerable, function (index, value) {
+        accumulator = callback.call(value, accumulator, index);
       });
       return accumulator;
     },
@@ -22,9 +22,9 @@
     // $([1,2,3]).select(function() { return this % 2 == 1 }) // => [1, 3]
     select: function(enumerable, callback) {
       var result = [];
-      $.each(enumerable, function(index) {
+      $.each(enumerable, function(index, value) {
         if (callback.call(this, index))
-          result.push(this);
+          result.push(value);
       });
       return result;
     },
