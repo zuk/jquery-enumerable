@@ -4,7 +4,7 @@ The only fully tested, API consistent enumerable plugin for jQuery
 
 h2. Quick start
 
-<pre><code><script src="jquery-1.2.6.js"></script>
+<pre><code><script src="jquery-1.4.2.js"></script>
 <script src="jquery.enumerable.js"></script></code></pre>
 
 h2. Usage
