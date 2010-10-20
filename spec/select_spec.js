@@ -12,6 +12,22 @@ Screw.Unit(function() {
          return f([1,2,3], function(index) { return this == 1 || index == 1})
       });
 
+      expect_result("is not NaN", [1], function(f) {
+         return f([1], function(index) { return isNaN(this) === false; })
+      });
+
+      expect_result("equals a number", [1], function(f) {
+         return f([1], function(index) { return this == 1; })
+      });
+
+      expect_result("is a number", [1], function(f) {
+         return f([1], function(index) { return this === 1; })
+      });
+
+      expect_result("is of type 'number'", [1], function(f) {
+         return f([1], function(index) { return typeof this === "number"; })
+      });
+
       it_protects_from_invalid_callback();
     });
   });
